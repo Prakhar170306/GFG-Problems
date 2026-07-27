@@ -1,16 +1,18 @@
 class Solution {
 public:
     int getSecondLargest(vector<int> &arr) {
+
         int largest = -1;
         int secondLargest = -1;
 
-        for (int x : arr) {
-            if (x > largest) {
+        for (int i = 0; i < arr.size(); i++) {
+
+            if (arr[i] > largest) {
                 secondLargest = largest;
-                largest = x;
+                largest = arr[i];
             }
-            else if (x < largest && x > secondLargest) {
-                secondLargest = x;
+            else if (arr[i] > secondLargest && arr[i] != largest) {
+                secondLargest = arr[i];
             }
         }
 
