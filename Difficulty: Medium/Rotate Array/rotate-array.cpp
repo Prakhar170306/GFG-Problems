@@ -1,11 +1,16 @@
 class Solution {
   public:
     void rotateArr(vector<int>& arr, int d) {
+        
         int n = arr.size();
         d = d % n;
-
-        reverse(arr.begin(), arr.begin() + d);
-        reverse(arr.begin() + d, arr.end());
-        reverse(arr.begin(), arr.end());
+        
+        vector<int> temp(n);
+        
+        for(int i = 0; i < n; i++) {
+            temp[(i + n - d) % n] = arr[i];
+        }
+        
+        arr = temp;
     }
 };
